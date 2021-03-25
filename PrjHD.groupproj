@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{B0502217-C59C-412E-8270-98708C6D2751}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Agent\Agent.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Server\Server.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Service\SvcAgent.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CPDynFiles\CPDynFiles.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MDHierarchy\MDHierarchy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Server\FtpServer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Agent">
+        <MSBuild Projects="Agent\Agent.dproj"/>
+    </Target>
+    <Target Name="Agent:Clean">
+        <MSBuild Projects="Agent\Agent.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Agent:Make">
+        <MSBuild Projects="Agent\Agent.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Server">
+        <MSBuild Projects="Server\Server.dproj"/>
+    </Target>
+    <Target Name="Server:Clean">
+        <MSBuild Projects="Server\Server.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Server:Make">
+        <MSBuild Projects="Server\Server.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SvcAgent">
+        <MSBuild Projects="Service\SvcAgent.dproj"/>
+    </Target>
+    <Target Name="SvcAgent:Clean">
+        <MSBuild Projects="Service\SvcAgent.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SvcAgent:Make">
+        <MSBuild Projects="Service\SvcAgent.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPDynFiles">
+        <MSBuild Projects="CPDynFiles\CPDynFiles.dproj"/>
+    </Target>
+    <Target Name="CPDynFiles:Clean">
+        <MSBuild Projects="CPDynFiles\CPDynFiles.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPDynFiles:Make">
+        <MSBuild Projects="CPDynFiles\CPDynFiles.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MDHierarchy">
+        <MSBuild Projects="MDHierarchy\MDHierarchy.dproj"/>
+    </Target>
+    <Target Name="MDHierarchy:Clean">
+        <MSBuild Projects="MDHierarchy\MDHierarchy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MDHierarchy:Make">
+        <MSBuild Projects="MDHierarchy\MDHierarchy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FtpServer">
+        <MSBuild Projects="Server\FtpServer.dproj"/>
+    </Target>
+    <Target Name="FtpServer:Clean">
+        <MSBuild Projects="Server\FtpServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FtpServer:Make">
+        <MSBuild Projects="Server\FtpServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Agent;Server;SvcAgent;CPDynFiles;MDHierarchy;FtpServer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Agent:Clean;Server:Clean;SvcAgent:Clean;CPDynFiles:Clean;MDHierarchy:Clean;FtpServer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Agent:Make;Server:Make;SvcAgent:Make;CPDynFiles:Make;MDHierarchy:Make;FtpServer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
